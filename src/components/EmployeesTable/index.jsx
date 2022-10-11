@@ -23,7 +23,7 @@ export const EmployeesTable = ({checkedEmployees, checkedCompanies, companies, a
         patchEmployeeCell(id, cell, inputValue, checkedCompanies[0])
     }
     const deleteEmployees = () => {
-        deleteEmployee(checkedEmployees, checkedCompanies[0], employeesAmount, checkedEmployees.length)
+        deleteEmployee(checkedEmployees, checkedCompanies[0], employeesAmount, checkedEmployees.length, amount)
     }
 
     const employees = useSelector((state) => state.employeeReducer.employees)

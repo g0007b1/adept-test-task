@@ -18,7 +18,7 @@ export const CompaniesTable = ({companies, amount, checkedCompanies}) => {
     }
 
     const deleteCompanies = () => {
-        deleteCompany(checkedCompanies)
+        deleteCompany(checkedCompanies, amount)
     }
 
     const patchNewCompanyCell = (id, cell, inputValue) => {

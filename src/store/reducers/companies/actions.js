@@ -29,14 +29,14 @@ export const companiesActions = {
         type: companiesActionsTypes.SET_IS_ALL_CHECKED,
         isAllCompaniesChecked
     }),
-    deleteCompany: (companyIds) => {
+    deleteCompany: (companyIds, amount) => {
         return async (dispatch) => {
             companyIds.forEach(id => {
                 companiesApi.deleteCompany(id)
                 dispatch(companiesActions.removeCheckedCompany(id))
             })
             dispatch(companiesActions.clearCompanies())
-            dispatch(companiesActions.getCompanies(10))
+            dispatch(companiesActions.getCompanies(amount))
             dispatch(employeeActions.clearEmployees())
         }
     }

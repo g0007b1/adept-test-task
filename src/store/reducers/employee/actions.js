@@ -33,7 +33,7 @@ export const employeeActions = {
         type: employeeActionsTypes.SET_IS_ALL_CHECKED,
         IsAllEmployeesChecked
     }),
-    deleteEmployee: (employeeIdS, companyId, employeesAmount, length) => {
+    deleteEmployee: (employeeIdS, companyId, employeesAmount, length, amount) => {
         return async (dispatch) => {
             employeeIdS.forEach(id => {
                 console.log('Удаляю ' + id)
@@ -41,7 +41,7 @@ export const employeeActions = {
                 dispatch(employeeActions.removeCheckedEmployee(id))
             })
             await companiesApi.setEmployeesAmount(employeesAmount - length, companyId)
-            dispatch(companiesActions.getCompanies(10))
+            dispatch(companiesActions.getCompanies(amount))
             dispatch(employeeActions.clearEmployees())
             dispatch(employeeActions.getEmployee(companyId))
         }
